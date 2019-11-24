@@ -223,14 +223,376 @@ person = "Major" if personAge > 10 else "Minor"
 print("Person is :", personAge)
 """
 
+"""
+# Strings
+# In Python, Strings can be declared with single or doubles, triple single or double quotes
+
+str1 = 'This is string with single quotes'
+str2 = "This is string with double quotes"
+str3 = '''This is a string with triple single quotes'''
+"""
+'''
+str4 = """This is a string with triple double quotes"""
+print(str1)
+print(str2)
+print(str3)
+print(str4)
+'''
+"""
+# Ignoring escape sequences in Strings
+escstr1 = r"This is a string without escape sequence \t\n"
+print(escstr1)
+
+# Appending the Strings
+string1 = "test1"
+string2 = "test2"
+print(string1 + " " + string2)
+
+charString = "Hello World"
+
+# Length of the String
+print("Length :", len(charString))
+
+# Char at index 0
+print("charString[0] :", charString[0])
+
+# Last Char
+print("charString[-1] :", charString[-1])
+
+# Char from index 0 to 2 but not 3
+print("charString[0:2] :", charString[0:3])
+
+# Every Other character in the String - Print first char and skip the next
+print("Every Other Char :", charString[0:-1:2])
+
+# Every Other two characters in the String - Print first char and skip next two
+print("Every Other Two Char :", charString[0:-1:3])
+
+# Replace the chars in the string
+charString2 = charString.replace("Hello", "Goodbye")
+print(charString2)
+
+# Chars 0 till index 8 and chars from index 9 to last
+charString3 = charString2[:8] + "w" + charString2[9:]
+print(charString3)
+
+# Find a String exists in the String
+print("world" in charString3)
+
+# Find a String not exists in the String
+print("world" not in charString3)
+
+# Find the index of the String
+print("Index of world :", charString3.find("world"))
+
+# Trim / Strip empty spaces in Strings
+print("     Hello World    ".strip())
+
+# lstrip
+print("     Hello World".lstrip())
+
+# rstrip
+print("Hello World    ".rstrip())
+
+# Concat list of Strings
+print(" ".join(["Hello", "World", "Welcome"]))
+
+# Splitting Strings
+print("HELLO WORLD WELCOME".split(" "))
+
+# 'f' allows us to substitute the value of the variables and do calculations
+int1 = int2 = 5
+print(f"{int1} + {int2} = {int1 + int2}")
+
+# Converting String to lower case
+print("HELLO".lower())
+
+# Converting String to upper case
+print("hello".upper())
+
+# Check string whether it is a AlphaNumeric
+print("ABC 123".isalnum())
+print("ABC123".isalnum())
+
+# Check string whether it is a Alphabets
+print("ABC D".isalpha())
+print("ABCD".isalpha())
+# Check string whether it is a Digit
+print("123 4".isdigit())
+print("1234".isdigit())
+"""
+
+"""
+# Lists - Mutable pieces of Data
+list1 = [1, "test", 3.14, False]
+
+# Length of the list
+print("Length :", len(list1))
+# First value of the list
+print("First Value :", list1[0])
+# Last value of the list
+print("Last Value :", list1[-1])
+
+# Replacing index  1 value with 'TEST' string
+list1[1] = "TEST"
+print(list1)
+
+# Replacing indices 1 and 2 but not 3 with values 'TEST1' and 100
+list1[1:3] = ["TEST1", 100]
+print(list1)
+
+# Adding new elements from index 2 without disturbing the other values
+list1[2:2] = ["TEST123", 3.143]
+print(list1)
+
+# Adding elements using insert at index 0 without disturbing the other values
+list1.insert(0, "One")
+print(list1)
+
+# Creating a New list by adding two lists
+list2 = list1 + [1, 2, 3, "TEST456"]
+print(list2)
+
+# Removing an element from last
+print(list2.pop())
+
+# Removing an element with an index value is 0
+print(list2.pop(0))
+
+# Removing an element with name
+print(list2.remove("TEST123"))
+print(list2)
+
+# Multi dimensional list
+list3 = [[1, 2], [3, 4], [5, 6]]
+print(list3[0])
+print(list3[1])
+print(list3[2])
+print(list3[0][0])
+print(list3[0][1])
+print(list3[1][0])
+print(list3[1][1])
+print(list3[2][0])
+print(list3[2][1])
+
+list4 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# Find a value exists in the list
+print("5 Exists :", 5 in list4)
+
+# Value not exists in the list
+print("15 Not Exists :", 15 not in list4)
+
+# First value
+print("First Value :", list4[0])
+
+# Second value
+print("Last Value :", list4[-1])
+
+# Values from index 0 to 2 but not including 3
+print("Last Value :", list4[0:3])
+
+# Printing Every other value in the list
+print("Every other value :", list4[0:-1:2])
+
+# Reversing the list
+print("Reverse List :", list4[::-1])
+
+# Minimum value from the list
+print("Minimum Value :", min(list4))
+
+# Maximum value from the list
+print("Maximum Value :", max(list4))
+"""
+
+"""
+# Loops
+
+# while loop
+# Print number from 1 to 5
+w1 = 1
+while w1 < 5:
+    print(w1)
+    w1 += 1
+
+# Print only even number from 1 to 10
+w2 = 1
+while w2 <= 10:
+    if w2 % 2 == 0:
+        print(w2)
+    w2 += 1
 
 
+# Print only even number from 1 to 8 - using break and continue
+w3 = 1
+while w3 <= 10:
+    if w3 % 2 == 0:
+        print(w3)
+    elif w3 == 8:
+        break
+    else:
+        w3 += 1
+        continue
+    w3 += 1
 
 
+# Iterating through the list
+wList1 = [1, 2, 3, 4, 5, 6]
+# Destructive approach
 
+while len(wList1):
+    print(wList1.pop(0))
 
+# Non Destructive approach
+wList2 = [1, 2, 3, 4, 5, 6]
+index = 0
+listLength = len(wList2)
 
+while index < listLength:
+    print(wList2[index])
+    index += 1
+"""
+"""
+# For Loop
+# Iterating through range of numbers
+for x in range(1, 5):
+    print(x, end="")
+print()
 
+fList1 = [1, "TEST", 100, True]
+# Iterating through a List
+for x in fList1:
+    print(x, " ", end="")
+print()
+
+# Iterators
+
+iList = [1, 2, 3, 4, 5, 6]
+iter1 = iter(iList)
+print(next(iter1))
+print(next(iter1))
+print(next(iter1))
+"""
+
+"""
+# Range Function
+# Creating a list of numbers using range function
+rList1 = list(range(0, 5))
+print(rList1)
+
+# Creating a list of numbers using range function with interval of 2 numbers
+rList2 = list(range(0, 10, 2))
+print(rList2)
+
+# Iterating through multi dimensional array / list
+rList3 = [[1, 2, 3], ['A', 'B', 'C'], ['a', 'b', 'c']]
+
+for x in range(0, 3):
+    for y in range(0, 3):
+        print(rList3[x][y])
+"""
+"""
+# Tuples - Immutable collection of data
+t1 = (1, "Test", 3.143)
+# Length of the Tuple
+print("Length :", len(t1))
+
+# First value
+print("First value :", t1[0])
+
+# Last Value
+print("Last Value :", t1[-1])
+
+# Values from 0 to 1 but not 2
+print("Values from 0 to 1 but not 2 :", t1[0:2])
+
+# Every other value
+print("Every other value :", t1[0:-1:2])
+"""
+
+"""
+# Dictionaries are the list of Key Value pairs - Duplicate keys are not allowed
+# Creating a Dictionary
+students1 = {
+    "1": "Student1",
+    "2": "Student2",
+    "3": "Student3"
+}
+print(students1)
+
+students2 = dict([
+    ("1", "Student1"),
+    ("2", "Student2"),
+    ("3", "Student3")
+])
+print(students2)
+
+# Length of the Dictionary
+print(len(students1))
+
+# Getting a value of the Key
+print(students1["2"])
+
+# Adding or Changing the value of the Key
+students1["3"] = "Student333"
+students1["4"] = "Student4"
+print(students1)
+
+# Converting Dictionary to List of Key Value tuples
+print(list(students1.items()))
+
+# Get the list of keys from the Dictionary
+print("Keys :", list(students1.keys()))
+
+# Get the list of values from the Dictionary
+print("Values :", list(students1.values()))
+
+# Deleting a Key from Dictionary
+del students1["2"]
+print(students1)
+
+students1.pop("4")
+print(students1)
+
+# Checking whether a key exists or not
+print("2" in students1)
+print("2" in students2)
+
+# Iterating a Dictionary using for loop
+# Iterates through all the keys
+for x in students2:
+    print(x)
+
+# Iterates through all the Values
+for x in students2.values():
+    print(x)
+
+# Printing the dictionary value automatically
+dict1 = {"id": "1", "name": "TEST"}
+print("%(id)s Name is %(name)s" % dict1)
+
+dict2 = {"name": "NAME", "price": 10.053}
+print("%(name)s price is RS. %(price).2f" % dict2)
+"""
+
+# Sets - An unordered list only have the Unique values
+# Creating a Set
+
+set1 = set([1, 2, "TEST"])
+set2 = {1, 4, "TEST"}
+
+print(set1)
+print(len(set1))
+
+# Adding two sets - Only distinct values
+set3 = set1 | set2
+print(set3)
+
+# Adding an element to the set
+set3.add(5.14)
+print(set3)
+
+# Remove or discard an element from the set 
 
 
 
