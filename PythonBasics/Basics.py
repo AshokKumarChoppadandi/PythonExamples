@@ -575,24 +575,278 @@ dict2 = {"name": "NAME", "price": 10.053}
 print("%(name)s price is RS. %(price).2f" % dict2)
 """
 
+"""
 # Sets - An unordered list only have the Unique values
 # Creating a Set
-
 set1 = set([1, 2, "TEST"])
 set2 = {1, 4, "TEST"}
 
-print(set1)
-print(len(set1))
+print("SET1 :", set1)
+print("SET1 Length :", len(set1))
 
 # Adding two sets - Only distinct values
 set3 = set1 | set2
-print(set3)
+print("SET3 :", set3)
+
+set4 = {6, 7, 8}
+set4 |= set3
+print("SET4 :", set4)
+
 
 # Adding an element to the set
 set3.add(5.14)
-print(set3)
+print("5.14 added to the SET3 :", set3)
 
-# Remove or discard an element from the set 
+# Remove or discard an element from the set
+set3.discard("TEST")
+print("'TEST' discarded from the SET3 :", set3)
+
+# Remove a random element - Because it is Unordered list
+print("Random element from SET3 :", set3.pop())
+print("SET3 after removing the random element :", set3)
+
+# Intersection, Symmetric Difference, Difference
+print("Intersection of SET1 & SET4 :", set1.intersection(set4))
+print("Symmetric_Difference of SET1 & SET4 :", set1.symmetric_difference(set4))
+print("Difference of SET1 & SET4 :", set1.difference(set4))
+
+# Clearing the elements of the set
+set4.clear()
+print("Empty SET4 :", set4)
+
+# Frozen SET - Nothing can be changed. It is fixed
+set5 = frozenset(["a", "b", "c"])
+print(set5)
+
+# Trying to add an element to the Frozen set but compiler throws error
+#set5.add(10)
+"""
+
+"""
+# FUNCTIONS
+# Creating a simple addition function
+def add_numbers(number1, number2):
+    return number1 + number2
+
+
+print("3 + 5 =", add_numbers(3, 5))
+print("3.34 + 5.12 =", add_numbers(3.34, 5.12))
+
+
+# Creating a simple addition function by defining the argument types
+
+def add_numbers2(number1: int, number2: int):
+    return number1 + number2
+
+
+print("3 + 5 =", add_numbers2(3, 5))
+
+
+# Creating a simple addition function by defining the default values
+
+def add_numbers3(number1: int, number2: int = 5):
+    return number1 + number2
+
+
+print("3 + 5 =", add_numbers3(3))
+
+
+# Creating a simple addition function which takes a list of the arguments
+
+def add_numbers4(*args):
+    final_sum = 0
+    for number in args:
+        final_sum += number
+    return final_sum
+
+
+print("Sum of (1, 2, 3, 4) :", add_numbers4(1, 2, 3, 4))
+
+
+# Function returning two values
+
+def return_two(number):
+    return number * 2, number * 3
+
+
+print("Two and Three times of 5 is:", return_two(5))
+
+
+# Function which returns a function
+
+def multiply_number(number):
+    # Lambda Function representation
+    return lambda x: x * number
+
+
+# This return the Function which takes an argument
+func = multiply_number(3)
+print("3 * 5 =", func)
+
+# This return the multiplication of two number
+print("3 * 5 =", func(5))
+
+
+# Passing function as an argument
+def func_take_argument(list1, function1):
+    for number in list1:
+        print(function1(number))
+
+
+func_take_argument([1, 2, 3, 4, 5], multiply_number(5))
+
+# Functions as a List
+
+functions_list = [
+    lambda x: x ** 2,
+    lambda x: x ** 3
+]
+
+for func2 in functions_list:
+    print(func2(5))
+"""
+
+"""
+# MAP, FILTER & REDUCE
+# MAP - Iterates through each element of a list and execute the given function to it.
+
+mList1 = list(range(1, 11))
+print(list(map((lambda x: x * 2), mList1)))
+print(list(filter((lambda x: x % 2 == 0), mList1)))
+print(reduce((lambda x, y: x + y), mList1))
+"""
+
+"""
+# Exception Handling
+while True:
+    try:
+        in_number = int(input("Please enter a Number :"))
+        print("You have a entered a Number")
+        break
+    # ValueError Exception
+    except ValueError:
+        print("Only numbers are allowed")
+    # All other Exceptions
+    except:
+        print("Unknown error occurred")
+
+"""
+
+"""
+# FILE IO OPERATIONS
+# With is used to open the file and it make sures that file is closed at the end
+# Writing the data to a file.
+# Read Mode = r
+# Write Mode = w
+# Append Mode = a
+
+with open("my_test_file.txt", mode="w", encoding="utf-8") as file1:
+    file1.write("This is a test file, line 1\n")
+    file1.write("This is a test file, line 2\n")
+    file1.write("This is a test file, line 3\n")
+
+# Reading the data from the file
+with open("my_test_file.txt", mode="r", encoding="utf-8") as file2:
+    print(file2.read())
+
+# Checking whether the file is closed or not
+print(file2.closed)
+"""
+
+"""
+# Classes
+class Employee:
+    def __init__(self, id=1, name="test"):
+        self.id = id
+        self.name = name
+
+    @property
+    def id(self):
+        return self.__id
+
+    @id.setter
+    def id(self, arg):
+        self.__id = arg
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, arg):
+        self.__name = arg
+
+    def get_employeee(self):
+        return "[ID = " + str(self.__id) + ", NAME = " + self.__name + "]"
+
+
+employee1 = Employee()
+employee1.id = 10
+employee1.name = "TEST"
+
+result1 = employee1.get_employeee()
+print(result1)
+
+employee2 = Employee()
+result2 = employee2.get_employeee()
+print(result2)
+"""
+
+# Inheritance and Polymorphism
+
+class Animal:
+    def __init__(self, name="unknown", weight=0):
+        self.__name = name
+        self.__weight = weight
+
+    @property
+    def name(self, value):
+        self.__name = value
+
+    def make_noise(self):
+        return "Grrrrrrrr"
+
+    def __str__(self):
+        return "{} is a {} and says {}".format(self.__name, type(self).__name__, self.make_noise())
+
+    def __gt__(self, animal2):
+        if self.__weight > animal2.__weight:
+            return True
+        else:
+            return False
+
+    # OTHER MAGIC METHODS:
+    # __eq__ : Equal
+    # __ne__ : Not Equal
+    # __lt__ : Less Than
+    # __gt__ : Greater Than
+    # __le__ : Less Than or Equal
+    # __ge__ : Greater Than or Equal
+    # __add__ : Addition
+    # __sub__ : Subtraction
+    # __mul__ : Multiplication
+    # __div__ : Division
+    # __mod__ : Modulus
+
+class Dog(Animal):
+    def __init__(self, name1="unknown", owner1="unknown", weight1=0):
+        Animal.__init__(self, name1, weight1)
+        self.__owner1 = owner1
+
+    def __str__(self):
+        return "{} is a {} and says {} has the owner {}".format(self.__name, type(self).__name__, self.make_noise(), self.__owner)
+
+
+animal1 = Animal("animal", 100)
+print(animal1)
+
+dog = Dog("Scooby", "Ashok", 150)
+print(dog)
+
+print(animal1 > dog)
+
+
+
 
 
 
